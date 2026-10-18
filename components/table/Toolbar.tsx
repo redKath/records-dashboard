@@ -6,6 +6,7 @@ interface ToolbarProps {
   table: Table<Employee>;
   search: string;
   onSearchChange: (value: string) => void;
+  onClear: () => void;
   onAdd: () => void;
 }
 
@@ -13,16 +14,12 @@ export function Toolbar({
   table,
   search,
   onSearchChange,
+  onClear,
   onAdd,
 }: ToolbarProps) {
   const department = table.getColumn("department");
   const status = table.getColumn("status");
   const hasFilters = search !== "" || table.getState().columnFilters.length > 0;
-
-  const clear = () => {
-    onSearchChange("");
-    table.resetColumnFilters();
-  };
 
   return (
     <div className="flex flex-wrap items-end gap-3">
@@ -55,7 +52,7 @@ export function Toolbar({
       />
       <button
         type="button"
-        onClick={clear}
+        onClick={onClear}
         disabled={!hasFilters}
         className="rounded-md border border-zinc-300 px-3 py-2 text-sm hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
       >

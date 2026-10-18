@@ -18,11 +18,14 @@ import { useDebouncedValue } from "@/lib/useDebouncedValue";
 import { EmployeeForm } from "@/components/forms/EmployeeForm";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { Drawer } from "@/components/ui/Drawer";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { Modal } from "@/components/ui/Modal";
 import { Toast } from "@/components/ui/Toast";
 import { getColumns, searchFilter } from "./columns";
+import { EmployeeCard } from "./EmployeeCard";
 import { EmployeeDetails } from "./EmployeeDetails";
 import { Pagination } from "./Pagination";
+import { TableSkeleton } from "./TableSkeleton";
 import { Toolbar } from "./Toolbar";
 
 const ARIA_SORT: Record<SortDirection, "ascending" | "descending"> = {
@@ -106,7 +109,13 @@ export function EmployeeTable() {
 
   const selected = data?.find((e) => e.id === selectedId);
 
-  if (!data) return <p className="text-zinc-500">Loading…</p>;
+  if (!data) return <TableSkeleton />;
+
+  const total = table.getFilteredRowModel().rows.length;
+  const clearFilters = () => {
+    setSearch("");
+    table.resetColumnFilters();
+  };
 
   return (
     <div className="space-y-4">
@@ -114,62 +123,93 @@ export function EmployeeTable() {
         table={table}
         search={search}
         onSearchChange={setSearch}
+        onClear={clearFilters}
         onAdd={() => setFormTarget("new")}
       />
-      <div className="overflow-x-auto rounded-lg border border-zinc-200">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-zinc-50 text-xs text-zinc-600 uppercase">
-            {table.getHeaderGroups().map((group) => (
-              <tr key={group.id}>
-                {group.headers.map((header) => {
-                  const dir = header.column.getIsSorted();
-                  const label = flexRender(
-                    header.column.columnDef.header,
-                    header.getContext(),
-                  );
-                  return (
-                    <th
-                      key={header.id}
-                      scope="col"
-                      aria-sort={dir ? ARIA_SORT[dir] : undefined}
-                      className="px-4 py-3 font-semibold whitespace-nowrap"
-                    >
-                      {header.column.getCanSort() ? (
-                        <button
-                          type="button"
-                          onClick={header.column.getToggleSortingHandler()}
-                          className="inline-flex items-center gap-1 uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+      {data.length === 0 ? (
+        <EmptyState
+          title="No employees yet"
+          description="Add the first employee to get started."
+          actionLabel="Add employee"
+          onAction={() => setFormTarget("new")}
+        />
+      ) : total === 0 ? (
+        <EmptyState
+          title="No results"
+          description="No employees match your search or filters."
+          actionLabel="Clear filters"
+          onAction={clearFilters}
+        />
+      ) : (
+        <>
+          <div className="hidden overflow-x-auto rounded-lg border border-zinc-200 md:block">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-zinc-50 text-xs text-zinc-600 uppercase">
+                {table.getHeaderGroups().map((group) => (
+                  <tr key={group.id}>
+                    {group.headers.map((header) => {
+                      const dir = header.column.getIsSorted();
+                      const label = flexRender(
+                        header.column.columnDef.header,
+                        header.getContext(),
+                      );
+                      return (
+                        <th
+                          key={header.id}
+                          scope="col"
+                          aria-sort={dir ? ARIA_SORT[dir] : undefined}
+                          className="px-3 py-3 font-semibold whitespace-nowrap"
                         >
-                          {label}
-                          <SortIcon dir={dir} />
-                        </button>
-                      ) : (
-                        <span className="sr-only">{label}</span>
-                      )}
-                    </th>
-                  );
-                })}
-              </tr>
-            ))}
-          </thead>
-          <tbody className="divide-y divide-zinc-100">
-            {table.getRowModel().rows.map((row) => (
-              <tr
-                key={row.id}
-                onClick={() => setSelectedId(row.original.id)}
-                className="cursor-pointer hover:bg-zinc-50"
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="px-4 py-3 whitespace-nowrap">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
+                          {header.column.getCanSort() ? (
+                            <button
+                              type="button"
+                              onClick={header.column.getToggleSortingHandler()}
+                              className="inline-flex items-center gap-1 uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                            >
+                              {label}
+                              <SortIcon dir={dir} />
+                            </button>
+                          ) : (
+                            <span className="sr-only">{label}</span>
+                          )}
+                        </th>
+                      );
+                    })}
+                  </tr>
                 ))}
-              </tr>
+              </thead>
+              <tbody className="divide-y divide-zinc-100">
+                {table.getRowModel().rows.map((row) => (
+                  <tr
+                    key={row.id}
+                    onClick={() => setSelectedId(row.original.id)}
+                    className="cursor-pointer hover:bg-zinc-50"
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <td key={cell.id} className="px-3 py-3 whitespace-nowrap">
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <ul className="space-y-3 md:hidden">
+            {table.getRowModel().rows.map((row) => (
+              <EmployeeCard
+                key={row.id}
+                row={row}
+                onOpen={() => setSelectedId(row.original.id)}
+              />
             ))}
-          </tbody>
-        </table>
-      </div>
-      <Pagination table={table} />
+          </ul>
+          <Pagination table={table} />
+        </>
+      )}
       <Drawer
         open={!!selected}
         onClose={() => setSelectedId(null)}

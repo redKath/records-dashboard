@@ -1,0 +1,502 @@
+[
+  {
+    "id": "EMP-001",
+    "name": "Priya Okafor",
+    "email": "priya.okafor@example.com",
+    "department": "Marketing",
+    "role": "Marketing Manager",
+    "status": "Active",
+    "location": "Lisbon",
+    "startDate": "2018-05-17"
+  },
+  {
+    "id": "EMP-002",
+    "name": "Noah Bergstrom",
+    "email": "noah.bergstrom@example.com",
+    "department": "Operations",
+    "role": "HR Coordinator",
+    "status": "On Leave",
+    "location": "Remote",
+    "startDate": "2025-02-06"
+  },
+  {
+    "id": "EMP-003",
+    "name": "Nora Okafor",
+    "email": "nora.okafor@example.com",
+    "department": "Engineering",
+    "role": "Engineering Manager",
+    "status": "Inactive",
+    "location": "Toronto",
+    "startDate": "2026-02-18"
+  },
+  {
+    "id": "EMP-004",
+    "name": "Zoe Nakamura",
+    "email": "zoe.nakamura@example.com",
+    "department": "Engineering",
+    "role": "Engineering Manager",
+    "status": "Active",
+    "location": "Singapore",
+    "startDate": "2026-01-22"
+  },
+  {
+    "id": "EMP-005",
+    "name": "Jonas Okafor",
+    "email": "jonas.okafor@example.com",
+    "department": "Engineering",
+    "role": "Engineering Manager",
+    "status": "On Leave",
+    "location": "Singapore",
+    "startDate": "2021-09-24"
+  },
+  {
+    "id": "EMP-006",
+    "name": "Omar Nakamura",
+    "email": "omar.nakamura@example.com",
+    "department": "Sales",
+    "role": "Sales Manager",
+    "status": "Inactive",
+    "location": "Lisbon",
+    "startDate": "2023-08-03"
+  },
+  {
+    "id": "EMP-007",
+    "name": "Noah Moreau",
+    "email": "noah.moreau@example.com",
+    "department": "Design",
+    "role": "Design Lead",
+    "status": "Active",
+    "location": "Singapore",
+    "startDate": "2017-05-09"
+  },
+  {
+    "id": "EMP-008",
+    "name": "Omar Tanaka",
+    "email": "omar.tanaka@example.com",
+    "department": "Engineering",
+    "role": "Senior Software Engineer",
+    "status": "Active",
+    "location": "Remote",
+    "startDate": "2016-03-15"
+  },
+  {
+    "id": "EMP-009",
+    "name": "Elena Moreau",
+    "email": "elena.moreau@example.com",
+    "department": "Operations",
+    "role": "HR Coordinator",
+    "status": "Active",
+    "location": "Austin",
+    "startDate": "2022-03-18"
+  },
+  {
+    "id": "EMP-010",
+    "name": "Tomas Lindqvist",
+    "email": "tomas.lindqvist@example.com",
+    "department": "Operations",
+    "role": "HR Coordinator",
+    "status": "On Leave",
+    "location": "Berlin",
+    "startDate": "2024-08-05"
+  },
+  {
+    "id": "EMP-011",
+    "name": "Noah Ferreira",
+    "email": "noah.ferreira@example.com",
+    "department": "Engineering",
+    "role": "DevOps Engineer",
+    "status": "On Leave",
+    "location": "Lisbon",
+    "startDate": "2018-08-06"
+  },
+  {
+    "id": "EMP-012",
+    "name": "Ethan Tanaka",
+    "email": "ethan.tanaka@example.com",
+    "department": "Sales",
+    "role": "Solutions Consultant",
+    "status": "On Leave",
+    "location": "Remote",
+    "startDate": "2025-05-28"
+  },
+  {
+    "id": "EMP-013",
+    "name": "Lena Moreau",
+    "email": "lena.moreau@example.com",
+    "department": "Engineering",
+    "role": "DevOps Engineer",
+    "status": "Inactive",
+    "location": "Lisbon",
+    "startDate": "2021-10-04"
+  },
+  {
+    "id": "EMP-014",
+    "name": "Yuki Patel",
+    "email": "yuki.patel@example.com",
+    "department": "Engineering",
+    "role": "Engineering Manager",
+    "status": "Inactive",
+    "location": "Singapore",
+    "startDate": "2016-10-27"
+  },
+  {
+    "id": "EMP-015",
+    "name": "Zoe Novak",
+    "email": "zoe.novak@example.com",
+    "department": "Engineering",
+    "role": "Engineering Manager",
+    "status": "Inactive",
+    "location": "Berlin",
+    "startDate": "2021-03-23"
+  },
+  {
+    "id": "EMP-016",
+    "name": "Mateo Ferreira",
+    "email": "mateo.ferreira@example.com",
+    "department": "Engineering",
+    "role": "Software Engineer",
+    "status": "On Leave",
+    "location": "Lisbon",
+    "startDate": "2020-04-22"
+  },
+  {
+    "id": "EMP-017",
+    "name": "Jonas Brennan",
+    "email": "jonas.brennan@example.com",
+    "department": "Marketing",
+    "role": "SEO Specialist",
+    "status": "Active",
+    "location": "Berlin",
+    "startDate": "2023-06-23"
+  },
+  {
+    "id": "EMP-018",
+    "name": "Omar Patel",
+    "email": "omar.patel@example.com",
+    "department": "Operations",
+    "role": "Finance Associate",
+    "status": "Inactive",
+    "location": "Toronto",
+    "startDate": "2018-07-06"
+  },
+  {
+    "id": "EMP-019",
+    "name": "Elena Hartley",
+    "email": "elena.hartley@example.com",
+    "department": "Engineering",
+    "role": "QA Engineer",
+    "status": "Inactive",
+    "location": "Remote",
+    "startDate": "2021-10-08"
+  },
+  {
+    "id": "EMP-020",
+    "name": "Theo Ishikawa",
+    "email": "theo.ishikawa@example.com",
+    "department": "Engineering",
+    "role": "DevOps Engineer",
+    "status": "Active",
+    "location": "Lisbon",
+    "startDate": "2022-01-06"
+  },
+  {
+    "id": "EMP-021",
+    "name": "Jonas Delgado",
+    "email": "jonas.delgado@example.com",
+    "department": "Operations",
+    "role": "Office Manager",
+    "status": "Active",
+    "location": "Toronto",
+    "startDate": "2016-05-29"
+  },
+  {
+    "id": "EMP-022",
+    "name": "Amara Whitfield",
+    "email": "amara.whitfield@example.com",
+    "department": "Engineering",
+    "role": "QA Engineer",
+    "status": "Active",
+    "location": "Remote",
+    "startDate": "2023-09-10"
+  },
+  {
+    "id": "EMP-023",
+    "name": "Yuki Oyelaran",
+    "email": "yuki.oyelaran@example.com",
+    "department": "Sales",
+    "role": "Solutions Consultant",
+    "status": "Inactive",
+    "location": "Toronto",
+    "startDate": "2021-09-22"
+  },
+  {
+    "id": "EMP-024",
+    "name": "Ines Okafor",
+    "email": "ines.okafor@example.com",
+    "department": "Marketing",
+    "role": "Content Strategist",
+    "status": "On Leave",
+    "location": "Austin",
+    "startDate": "2022-07-27"
+  },
+  {
+    "id": "EMP-025",
+    "name": "Elena Patel",
+    "email": "elena.patel@example.com",
+    "department": "Design",
+    "role": "Visual Designer",
+    "status": "Active",
+    "location": "Lisbon",
+    "startDate": "2022-02-19"
+  },
+  {
+    "id": "EMP-026",
+    "name": "Mia Lindqvist",
+    "email": "mia.lindqvist@example.com",
+    "department": "Engineering",
+    "role": "QA Engineer",
+    "status": "Active",
+    "location": "Remote",
+    "startDate": "2019-01-05"
+  },
+  {
+    "id": "EMP-027",
+    "name": "Amara Nakamura",
+    "email": "amara.nakamura@example.com",
+    "department": "Design",
+    "role": "UX Researcher",
+    "status": "Inactive",
+    "location": "Remote",
+    "startDate": "2023-06-21"
+  },
+  {
+    "id": "EMP-028",
+    "name": "Dev Adeyemi",
+    "email": "dev.adeyemi@example.com",
+    "department": "Sales",
+    "role": "Sales Development Rep",
+    "status": "Active",
+    "location": "Berlin",
+    "startDate": "2022-04-15"
+  },
+  {
+    "id": "EMP-029",
+    "name": "Noah Castillo",
+    "email": "noah.castillo@example.com",
+    "department": "Design",
+    "role": "Visual Designer",
+    "status": "On Leave",
+    "location": "Berlin",
+    "startDate": "2024-04-20"
+  },
+  {
+    "id": "EMP-030",
+    "name": "Theo Patel",
+    "email": "theo.patel@example.com",
+    "department": "Design",
+    "role": "Visual Designer",
+    "status": "On Leave",
+    "location": "Singapore",
+    "startDate": "2023-10-17"
+  },
+  {
+    "id": "EMP-031",
+    "name": "Priya Ishikawa",
+    "email": "priya.ishikawa@example.com",
+    "department": "Operations",
+    "role": "Finance Associate",
+    "status": "Active",
+    "location": "Toronto",
+    "startDate": "2024-06-26"
+  },
+  {
+    "id": "EMP-032",
+    "name": "Sofia Adeyemi",
+    "email": "sofia.adeyemi@example.com",
+    "department": "Engineering",
+    "role": "Software Engineer",
+    "status": "On Leave",
+    "location": "Berlin",
+    "startDate": "2020-08-31"
+  },
+  {
+    "id": "EMP-033",
+    "name": "Omar Marchetti",
+    "email": "omar.marchetti@example.com",
+    "department": "Sales",
+    "role": "Account Executive",
+    "status": "Active",
+    "location": "Toronto",
+    "startDate": "2022-06-15"
+  },
+  {
+    "id": "EMP-034",
+    "name": "Elena Lindqvist",
+    "email": "elena.lindqvist@example.com",
+    "department": "Engineering",
+    "role": "Engineering Manager",
+    "status": "On Leave",
+    "location": "Austin",
+    "startDate": "2024-09-15"
+  },
+  {
+    "id": "EMP-035",
+    "name": "Ethan Delgado",
+    "email": "ethan.delgado@example.com",
+    "department": "Operations",
+    "role": "Finance Associate",
+    "status": "Active",
+    "location": "Singapore",
+    "startDate": "2025-04-26"
+  },
+  {
+    "id": "EMP-036",
+    "name": "Elena Sorensen",
+    "email": "elena.sorensen@example.com",
+    "department": "Marketing",
+    "role": "Brand Designer",
+    "status": "On Leave",
+    "location": "Lisbon",
+    "startDate": "2025-07-02"
+  },
+  {
+    "id": "EMP-037",
+    "name": "Ines Tanaka",
+    "email": "ines.tanaka@example.com",
+    "department": "Design",
+    "role": "Product Designer",
+    "status": "Active",
+    "location": "Lisbon",
+    "startDate": "2022-05-09"
+  },
+  {
+    "id": "EMP-038",
+    "name": "Mia Delgado",
+    "email": "mia.delgado@example.com",
+    "department": "Sales",
+    "role": "Account Executive",
+    "status": "Active",
+    "location": "Singapore",
+    "startDate": "2018-06-02"
+  },
+  {
+    "id": "EMP-039",
+    "name": "Tomas Novak",
+    "email": "tomas.novak@example.com",
+    "department": "Design",
+    "role": "Product Designer",
+    "status": "On Leave",
+    "location": "Berlin",
+    "startDate": "2017-04-26"
+  },
+  {
+    "id": "EMP-040",
+    "name": "Jonas Nakamura",
+    "email": "jonas.nakamura@example.com",
+    "department": "Design",
+    "role": "UX Researcher",
+    "status": "Active",
+    "location": "Remote",
+    "startDate": "2023-09-08"
+  },
+  {
+    "id": "EMP-041",
+    "name": "Ines Hartley",
+    "email": "ines.hartley@example.com",
+    "department": "Sales",
+    "role": "Sales Development Rep",
+    "status": "Active",
+    "location": "Remote",
+    "startDate": "2017-12-17"
+  },
+  {
+    "id": "EMP-042",
+    "name": "Caleb Whitfield",
+    "email": "caleb.whitfield@example.com",
+    "department": "Engineering",
+    "role": "QA Engineer",
+    "status": "Inactive",
+    "location": "Austin",
+    "startDate": "2024-05-13"
+  },
+  {
+    "id": "EMP-043",
+    "name": "Theo Okafor",
+    "email": "theo.okafor@example.com",
+    "department": "Sales",
+    "role": "Sales Development Rep",
+    "status": "Inactive",
+    "location": "Singapore",
+    "startDate": "2018-12-15"
+  },
+  {
+    "id": "EMP-044",
+    "name": "Liam Ishikawa",
+    "email": "liam.ishikawa@example.com",
+    "department": "Engineering",
+    "role": "DevOps Engineer",
+    "status": "Active",
+    "location": "Lisbon",
+    "startDate": "2018-07-17"
+  },
+  {
+    "id": "EMP-045",
+    "name": "Tomas Delgado",
+    "email": "tomas.delgado@example.com",
+    "department": "Design",
+    "role": "Visual Designer",
+    "status": "Active",
+    "location": "Austin",
+    "startDate": "2021-06-25"
+  },
+  {
+    "id": "EMP-046",
+    "name": "Tomas Tanaka",
+    "email": "tomas.tanaka@example.com",
+    "department": "Design",
+    "role": "Visual Designer",
+    "status": "Active",
+    "location": "Remote",
+    "startDate": "2025-05-14"
+  },
+  {
+    "id": "EMP-047",
+    "name": "Elena Adeyemi",
+    "email": "elena.adeyemi@example.com",
+    "department": "Marketing",
+    "role": "Marketing Manager",
+    "status": "Active",
+    "location": "Singapore",
+    "startDate": "2026-08-29"
+  },
+  {
+    "id": "EMP-048",
+    "name": "Dev Okafor",
+    "email": "dev.okafor@example.com",
+    "department": "Engineering",
+    "role": "Engineering Manager",
+    "status": "On Leave",
+    "location": "Singapore",
+    "startDate": "2023-07-23"
+  },
+  {
+    "id": "EMP-049",
+    "name": "Omar Ferreira",
+    "email": "omar.ferreira@example.com",
+    "department": "Engineering",
+    "role": "Software Engineer",
+    "status": "Active",
+    "location": "Singapore",
+    "startDate": "2018-05-07"
+  },
+  {
+    "id": "EMP-050",
+    "name": "Hana Whitfield",
+    "email": "hana.whitfield@example.com",
+    "department": "Design",
+    "role": "UX Researcher",
+    "status": "Active",
+    "location": "Remote",
+    "startDate": "2024-11-07"
+  }
+]

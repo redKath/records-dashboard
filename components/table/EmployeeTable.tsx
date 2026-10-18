@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   flexRender,
   getCoreRowModel,
@@ -15,7 +15,9 @@ import {
 import { getEmployees } from "@/lib/data";
 import type { Employee } from "@/lib/schema";
 import { useDebouncedValue } from "@/lib/useDebouncedValue";
-import { columns, searchFilter } from "./columns";
+import { Drawer } from "@/components/ui/Drawer";
+import { getColumns, searchFilter } from "./columns";
+import { EmployeeDetails } from "./EmployeeDetails";
 import { Pagination } from "./Pagination";
 import { Toolbar } from "./Toolbar";
 
@@ -35,6 +37,11 @@ export function EmployeeTable() {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [search, setSearch] = useState("");
   const globalFilter = useDebouncedValue(search);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const columns = useMemo(
+    () => getColumns({ onView: (e) => setSelectedId(e.id) }),
+    [],
+  );
 
   useEffect(() => {
     getEmployees().then(setData);
@@ -56,6 +63,8 @@ export function EmployeeTable() {
     getPaginationRowModel: getPaginationRowModel(),
   });
 
+  const selected = data?.find((e) => e.id === selectedId);
+
   if (!data) return <p className="text-zinc-500">Loading…</p>;
 
   return (
@@ -68,6 +77,10 @@ export function EmployeeTable() {
               <tr key={group.id}>
                 {group.headers.map((header) => {
                   const dir = header.column.getIsSorted();
+                  const label = flexRender(
+                    header.column.columnDef.header,
+                    header.getContext(),
+                  );
                   return (
                     <th
                       key={header.id}
@@ -75,17 +88,18 @@ export function EmployeeTable() {
                       aria-sort={dir ? ARIA_SORT[dir] : undefined}
                       className="px-4 py-3 font-semibold whitespace-nowrap"
                     >
-                      <button
-                        type="button"
-                        onClick={header.column.getToggleSortingHandler()}
-                        className="inline-flex items-center gap-1 uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                      >
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
-                        <SortIcon dir={dir} />
-                      </button>
+                      {header.column.getCanSort() ? (
+                        <button
+                          type="button"
+                          onClick={header.column.getToggleSortingHandler()}
+                          className="inline-flex items-center gap-1 uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                        >
+                          {label}
+                          <SortIcon dir={dir} />
+                        </button>
+                      ) : (
+                        <span className="sr-only">{label}</span>
+                      )}
                     </th>
                   );
                 })}
@@ -94,7 +108,11 @@ export function EmployeeTable() {
           </thead>
           <tbody className="divide-y divide-zinc-100">
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id} className="hover:bg-zinc-50">
+              <tr
+                key={row.id}
+                onClick={() => setSelectedId(row.original.id)}
+                className="cursor-pointer hover:bg-zinc-50"
+              >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} className="px-4 py-3 whitespace-nowrap">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -106,6 +124,13 @@ export function EmployeeTable() {
         </table>
       </div>
       <Pagination table={table} />
+      <Drawer
+        open={!!selected}
+        onClose={() => setSelectedId(null)}
+        title={selected?.name ?? ""}
+      >
+        {selected && <EmployeeDetails employee={selected} />}
+      </Drawer>
     </div>
   );
 }

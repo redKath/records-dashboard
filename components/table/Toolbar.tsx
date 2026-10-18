@@ -6,9 +6,15 @@ interface ToolbarProps {
   table: Table<Employee>;
   search: string;
   onSearchChange: (value: string) => void;
+  onAdd: () => void;
 }
 
-export function Toolbar({ table, search, onSearchChange }: ToolbarProps) {
+export function Toolbar({
+  table,
+  search,
+  onSearchChange,
+  onAdd,
+}: ToolbarProps) {
   const department = table.getColumn("department");
   const status = table.getColumn("status");
   const hasFilters = search !== "" || table.getState().columnFilters.length > 0;
@@ -54,6 +60,13 @@ export function Toolbar({ table, search, onSearchChange }: ToolbarProps) {
         className="rounded-md border border-zinc-300 px-3 py-2 text-sm hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
       >
         Clear filters
+      </button>
+      <button
+        type="button"
+        onClick={onAdd}
+        className="rounded-md bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+      >
+        Add employee
       </button>
     </div>
   );

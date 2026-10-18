@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
+import { useDialog } from "./useDialog";
 
 interface DrawerProps {
   open: boolean;
@@ -9,24 +10,13 @@ interface DrawerProps {
   children: ReactNode;
 }
 
-// Native <dialog>: showModal() provides the focus trap, ESC to close, and inert background
 export function Drawer({ open, onClose, title, children }: DrawerProps) {
-  const ref = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    const dialog = ref.current;
-    if (!dialog) return;
-    if (open && !dialog.open) dialog.showModal();
-    if (!open && dialog.open) dialog.close();
-  }, [open]);
+  const dialog = useDialog(open, onClose);
 
   return (
     <dialog
-      ref={ref}
+      {...dialog}
       aria-labelledby="drawer-title"
-      onClose={onClose}
-      // A click on the dialog element itself (not its content) is a backdrop click
-      onClick={(e) => e.target === ref.current && onClose()}
       className="ml-auto h-dvh max-h-none w-full max-w-md bg-white shadow-xl backdrop:bg-black/40"
     >
       {open && (
